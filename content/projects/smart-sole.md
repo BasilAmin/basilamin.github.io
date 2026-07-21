@@ -9,3 +9,4 @@ tags: hardware, embedded, sensors, biomechanics
 featured: true
 order: 3
 ---
+## Diabetic Peripheral Neuropathy
