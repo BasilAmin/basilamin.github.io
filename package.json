@@ -1,0 +1,15 @@
+{
+  "name": "basilamin-personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Basil Amin’s zero-dependency personal website for projects, logs, writing, and standalone pages.",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
