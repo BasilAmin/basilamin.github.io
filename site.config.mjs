@@ -4,7 +4,7 @@ export const site = {
   email: "basilaminxyz@gmail.com",
   location: "Dublin, Ireland",
   description: "Basil's space on what is the humongous internet.",
-  headline: "Projects, Articles, Publications, and more stuff about B.A.",
+  headline: "Basil's corner of the internet. Projects, Articles, Publications and more stuff.",
   introduction: "I'm Basil, I'm a student right now, I build things and research stuff. Interests include: Aerospace, Electronics, Rocketry, Defense, Biotech, AI/ML, and Politics.",
   now: "Developing autonomous drone swarm systems for surveying areas.",
   availability: "Email is open.",
