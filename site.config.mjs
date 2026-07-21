@@ -3,12 +3,12 @@ export const site = {
   domain: "https://basilamin.com",
   email: "basilaminxyz@gmail.com",
   location: "Dublin, Ireland",
-  description: "Projects, notes, and experiments by Basil Amin on software, robotics, physics, rockets, and spaceflight.",
-  headline: "Projects, notes, and experiments.",
-  introduction: "I'm Basil, a student in Dublin interested in rockets, robotics, physics, AI, and software. I use this site to document and show off what I build and what I learn.",
-  now: "Learning about drone swarms and multi-agent systems.",
+  description: "Basil's space on what is the humongous internet.",
+  headline: "Projects, Articles, Publications, and more stuff about B.A.",
+  introduction: "I'm Basil, I'm a student right now, I build things and research stuff. Interests include: Aerospace, Electronics, Rocketry, Defense, Biotech, AI/ML, and Politics.",
+  now: "Developing autonomous drone swarm systems for surveying areas.",
   availability: "Email is open.",
-  socialImageAlt: "Basil Amin — projects, notes, and experiments",
+  socialImageAlt: "Basil Amin projects, notes, publications and experiments",
   socialLinks: [
     { label: "GitHub", href: "https://github.com/BasilAmin", display: "@BasilAmin" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/basil-amin-653231354/", display: "Basil Amin" }
