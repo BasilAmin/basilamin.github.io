@@ -36,6 +36,12 @@ Create the production build with:
 npm run build
 ```
 
+Before pushing, run the complete production and link-integrity check:
+
+```bash
+npm run check
+```
+
 ## Folder map
 
 | Path | Purpose |

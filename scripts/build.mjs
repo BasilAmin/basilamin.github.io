@@ -51,16 +51,18 @@ function parseFrontmatterValue(key, value) {
   return trimmed;
 }
 
-function parseFrontmatter(raw) {
+function parseFrontmatter(raw, sourceFile = "Markdown file") {
   const normalized = raw.replace(/\r\n/g, "\n");
   if (!normalized.startsWith("---\n")) {
     return { attributes: {}, body: normalized.trim() };
   }
 
-  const endIndex = normalized.indexOf("\n---\n", 4);
-  if (endIndex === -1) {
-    throw new Error("Frontmatter opened with --- but was not closed.");
+  const closingMatch = /\n---(?:\n|$)/.exec(normalized.slice(4));
+  if (!closingMatch) {
+    throw new Error(`${sourceFile}: frontmatter opened with --- but was not closed.`);
   }
+  const endIndex = closingMatch.index + 4;
+  const bodyStart = endIndex + closingMatch[0].length;
 
   const attributes = {};
   const header = normalized.slice(4, endIndex);
@@ -74,7 +76,7 @@ function parseFrontmatter(raw) {
 
   return {
     attributes,
-    body: normalized.slice(endIndex + 5).trim()
+    body: normalized.slice(bodyStart).trim()
   };
 }
 
@@ -280,8 +282,9 @@ async function readMarkdownDirectory(directoryName) {
   const documents = [];
   for (const absolutePath of fileNames) {
     const raw = await fs.readFile(absolutePath, "utf8");
-    const { attributes, body } = parseFrontmatter(raw);
     const relativePath = path.relative(directory, absolutePath).split(path.sep).join("/");
+    const sourceFile = path.relative(rootDirectory, absolutePath);
+    const { attributes, body } = parseFrontmatter(raw, sourceFile);
     const fallbackRoute = relativePath.replace(/\.md$/, "").replace(/\/index$/, "");
     const slug = normaliseContentPath(attributes.route || attributes.slug || fallbackRoute);
 
@@ -290,7 +293,7 @@ async function readMarkdownDirectory(directoryName) {
       slug,
       body,
       html: markdownToHtml(body),
-      sourceFile: path.relative(rootDirectory, absolutePath)
+      sourceFile
     });
   }
 
@@ -306,6 +309,12 @@ function formatDate(dateValue, options = {}) {
     year: "numeric",
     timeZone: "UTC"
   }).format(date);
+}
+
+function isIsoDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value))) return false;
+  const date = new Date(`${value}T12:00:00Z`);
+  return !Number.isNaN(date.valueOf()) && date.toISOString().slice(0, 10) === value;
 }
 
 function normalisePath(value) {
@@ -828,10 +837,21 @@ function validateContent(projects, posts, pages) {
     if (kind === "page" && coreRoutes.has(document.slug.split("/")[0])) {
       throw new Error(`${document.sourceFile} conflicts with the built-in /${document.slug}/ route.`);
     }
+    for (const field of ["date", "updated"]) {
+      if (document[field] && !isIsoDate(document[field])) {
+        throw new Error(`${document.sourceFile} has an invalid ${field}; use YYYY-MM-DD.`);
+      }
+    }
   };
   projects.forEach((item) => check("projects", item));
   posts.forEach((item) => check("blog", item));
   pages.forEach((item) => check("page", item));
+  logEntries.forEach((entry, index) => {
+    if (!entry.title) throw new Error(`content/log.mjs entry ${index + 1} needs a title.`);
+    if (!isIsoDate(entry.date)) {
+      throw new Error(`content/log.mjs entry ${index + 1} has an invalid date; use YYYY-MM-DD.`);
+    }
+  });
 }
 
 export async function build() {

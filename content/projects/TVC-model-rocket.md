@@ -1,7 +1,7 @@
 ---
 title: TVC Model Rocket
 slug: tvc-model-rocket
-summary: A model scale actively controlled rocket using Thrust vectoring for stability.
+summary: A scale-model, actively controlled rocket using thrust vectoring for stability.
 year: 2023
 date: 2026-07-20
 status: Archived

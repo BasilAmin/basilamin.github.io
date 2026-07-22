@@ -12,10 +12,10 @@ npm run dev
 
 Open `http://localhost:3000`, check every page, and stop the server when finished.
 
-Run one final production build:
+Run one final production build and check every generated page, asset, and internal link:
 
 ```bash
-npm run build
+npm run check
 ```
 
 ## 2. Create the GitHub repository
