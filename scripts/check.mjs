@@ -38,9 +38,7 @@ async function resolveTarget(pathname) {
   for (const candidate of candidates) {
     try {
       if ((await fs.stat(candidate)).isFile()) return candidate;
-    } catch {
-      // Try the next valid static-file form.
-    }
+    } catch {}
   }
   return null;
 }

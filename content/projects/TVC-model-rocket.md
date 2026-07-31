@@ -1,40 +1,34 @@
 ---
 title: TVC Model Rocket
 slug: tvc-model-rocket
-summary: A scale-model, actively controlled rocket using thrust vectoring for stability.
+summary: My first serious engineering project: an actively controlled model rocket that taught me more through failure than success.
 year: 2023
 date: 2026-07-20
 status: Archived
-tags: rocketry, engineering, physics, hobbyist
+role: Mechanical design, electronics, firmware
+tags: Rocketry, Control Systems, Embedded Systems, CAD
 featured: true
-order: 2
+order: 4
 ---
-## Storytime
 
-This project has a special place in my brain, being my first ever technical/hobbyist project. It's quite a funny story:
+## Story
 
-Back in 1st year, when I was 11/12ish, my maths teacher told me I should enter the BTYSE (BT Young Scientist Exhibition), since I'd figured out, using basic components, how to get a motor moving by clapping, and sent him a video of it. I was thinking about what to build next, and originally wanted to build something with magnets (I don't know why — at the time they were just interesting to me).
+This was my first real technical project, started when I was about twelve. A maths teacher encouraged me to enter the BT Young Scientist Exhibition after I sent him a small electronics experiment. While looking for a larger idea, I met an engineer online who explained thrust-vector control and challenged me to build a model-scale version.
 
-I ended up on a random NASA fanclub Discord, and fortuitously met a mechanical engineer who works as a technician at SpaceX. It was pretty random, but I got on a call with him — a genuinely nice guy. He told me about a control system SpaceX used to land their rockets, then told me to go build a rocket using that same system. I thought it sounded cool, so I said yes.
+I said yes before I understood how much I did not know.
 
-The project was filled with harsh and unforgiving challenges. Physics is cruel. Very cruel. And the Dunning-Kruger curve hit me harder than it's hit anyone in history. But I learned a crazy amount — probably more than I'll ever learn again in the technical fields in such a short span. I'd also naively decided I wanted to actually launch it and land it propulsively, something that hadn't been done before by a hobbyist, and to enter the whole thing into the BTYSE.
+The project became a fast education in mechanics, electronics, control, CAD, firmware, and the gap between a system that works on a bench and one proven in its real environment. The rocket never flew. The motors I obtained were unreliable, and the project had grown far beyond what I could safely and realistically validate at the time.
 
-The rocket never launched. Even if it had, the project would still count as a failure by most measures — mainly because I tried to buy F-class motors through a supplier I really shouldn't have used, and ended up with faulty ones that had been opened before they reached me. The control system itself worked well in theory and bench testing, but nothing is proven until it's flown. I still call it a personal success, given how much I learned and applied.
+By the normal definition, that is a failed project. I still count it as one of the most important things I have built.
 
-I also went on national television (RTÉ's The Late Late Show) — [watch the clip here](https://drive.google.com/file/d/196UgNYvdXbkVi7Oqz2QPm5DFaSjFgQNb/view?usp=sharing) — to present the project, and picked up a minor award at the competition. It was pretty cool. They gave me free pizza.
+I presented it on RTÉ’s *The Late Late Show* and received a minor award at the exhibition. The free pizza was also excellent.
 
-More than anything, the project taught me a lot about myself — mainly, a much clearer sense of what I'm actually capable of. Since then, I've believed I can do whatever I set my mind to, as long as God wills it.
+## System overview
 
-## How it works
+The airframe held a two-axis gimbal, custom mechanical parts, a flight computer, sensors, and servo control. I designed the non-standard parts in CAD, produced a custom PCB, and wrote the firmware for sensor readout, orientation estimation, and real-time control.
 
-The airframe was built around two BT-80 body tubes, giving enough internal volume for the electronics bay and gimbal assembly while keeping the diameter manageable for a first build.
+The control loop behaved well in simulation and bench tests. It was never flight-validated, so I do not treat the result as proven.
 
-**Structure** — All the non-off-the-shelf mechanical parts, including the gimbal mount, motor retainer, and fin can, were CAD-designed and 3D printed. This let me iterate on the gimbal geometry quickly without needing to machine anything.
+## Durable lesson
 
-**Actuation** — The motor mount was gimbaled on two axes, actuated by a pair of servos driven directly off commands from the flight computer. This is what let the rocket steer thrust independently of the airframe's orientation, rather than relying on fins alone.
-
-**Electronics** — I designed a custom PCB to house the flight computer, sensor package, and servo drivers, rather than building around a breadboard or off-the-shelf dev board.
-
-**Firmware** — I wrote the firmware myself, handling sensor readout, an IMU-based orientation estimate, and attitude error into gimbal commands in real time.
-
-**Where it stood at the end** — The control loop performed well in bench testing and simulation, but the project never made it to a live flight, so the system was never validated in the one environment that actually matters.
+The project changed my sense of what I could learn, but it also made one rule permanent: a difficult system deserves staged evidence. Ambition is useful; skipping validation is not.

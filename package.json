@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Basil Amin’s zero-dependency personal website for projects, logs, writing, and standalone pages.",
+  "description": "A hand-built personal site for projects, logs, writing, and a public Now page.",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
-    "preview": "node scripts/serve.mjs"
+    "preview": "node scripts/serve.mjs",
+    "relay": "node relay/bridge.mjs",
+    "test:relay": "node --test relay/*.test.mjs",
+    "new": "node scripts/new.mjs",
+    "publish": "npm run build && npm run check"
   },
   "engines": {
     "node": ">=20"

@@ -1,14 +1,26 @@
 ---
 title: Now
-description: What I am working on now.
+description: What I am actually working on, not the complete list of things I find interesting.
 slug: now
 nav: false
 navLabel: Now
 draft: false
 navOrder: 20
-updated: 2026-07-21
+updated: 2026-07-29
 ---
-# Right now
-Since the end of June, I've been at Dogpatch Labs in Dublin city, attending the Patch Summer Accelerator Program. Three others and I are working on Relay, a gantry-based robotic chess system. It uses the Lichess API to synchronise virtual and physical chess games, with an electromagnet mounted on a gantry that we repurposed from a Creality Ender 3 Pro.
 
-In addition, I'm researching a centrally coordinated drone swarm system. It will begin as a general-purpose platform before I focus on a specific application, probably an industrial use case with data-integration software.
+## Relay at Dogpatch Labs
+
+I am spending the summer at Dogpatch Labs in Dublin on the Patch accelerator. Our team is building Relay: a gantry-based robotic chess system that keeps a physical board and a Lichess game in sync. I am working mainly on firmware, software, and the interfaces between the board, motion system, and online game.
+
+## Smenos
+
+I am researching a simulation-first, civilian multi-agent system for surveying. The immediate work is not “build a swarm.” It is defining the useful problem, mapping the information flow, choosing measurable simulation tests, and understanding where central coordination helps or fails.
+
+## Foundations
+
+I am also working through mechanics and mathematics more deliberately. The goal is to make the theory usable in engineering work rather than collecting half-finished courses.
+
+## Not now
+
+I am deliberately not trying to advance every project at once. Smart Sole, trading research, and broader website expansion remain documented, but they do not all get equal attention this month.

@@ -1,21 +1,33 @@
 ---
 title: Smart Sole
 slug: smart-sole
-summary: A lightweight, modular foot sensor system for real-time pressure mapping and gait analysis.
+summary: A modular pressure-sensing prototype exploring real-time gait feedback.
 year: 2026
 date: 2026-07-20
-status: In progress
-tags: hardware, embedded, sensors, biomechanics
+status: Documenting
+role: Concept, electronics, embedded software
+tags: Embedded Systems, Sensors, Biomechanics, Prototyping
 featured: true
 order: 3
 ---
 
-## Diabetic Peripheral Neuropathy
-Diabetic Peripheral Neuropathy is a neurodiabetic disorder which causes the loss of sensation in the feet. Naturally, this can result in all sorts of complications such as: Sores, ulcers, deformities, etc. and in some cases, results in amputations. My own grandmother has it which is why I built this project.
+## Why I started it
 
-## The Smart Sole
-Fundamentally, the Smart Sole was a solution I designed to mimic the nervous system virtually. The nervous system is fundamentally just a feedback loop: You do something that harms you, you feel pain, you correct yourself, then you learn never to do this again.
+The project began with a personal problem: my grandmother lives with reduced sensation in her feet. I wanted to explore whether pressure sensing and immediate feedback could make otherwise invisible patterns easier to notice.
 
-### System overview
+Smart Sole is a prototype and research project, not a diagnostic or medical device. Any useful version would require proper clinical input, validation, safety work, and a much clearer understanding of the people using it.
 
-#### Hardware
+## The idea
+
+The sole measures pressure across several points under the foot and turns those readings into a live map. A feedback layer could then flag unusual loading patterns or repeated pressure in one area.
+
+The interesting engineering problem is the loop:
+
+1. sense a physical pattern;
+2. turn noisy readings into something interpretable;
+3. communicate it without overwhelming the user;
+4. learn whether the feedback changes behaviour in a useful way.
+
+## Current state
+
+The next useful step is documentation before expansion. I am inventorying the existing hardware, code, measurements, and assumptions, then drawing the system as it actually exists. That should make the gaps—especially validation and user feedback—much easier to see.

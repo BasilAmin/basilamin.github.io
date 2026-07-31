@@ -1,35 +1,44 @@
 ---
 title: basilamin.com
 slug: personal-website
-summary: A small static site for projects, notes, and writing, built without a frontend framework.
+summary: A hand-built publishing system for projects, field notes, and longer writing.
 year: 2026
 date: 2026-07-20
-status: In progress
-tags: HTML, CSS, JavaScript
-featured: true
+status: Active
+role: Design, writing, development
+tags: HTML, CSS, JavaScript, Publishing
+featured: false
 order: 1
 ---
-## Why I built it
 
-I wanted a place on the internet that I control and understand. Social platforms are useful for discovery, but they are not a good archive for projects, unfinished ideas, or notes I may want to find again.
+## Why it exists
+
+I wanted an internet home that behaves like a workshop rather than a portfolio template. It needs to hold finished projects, rough logs, articles, and pages that change over time without turning every update into a development task.
 
 ## How it works
 
-The site is ordinary HTML, CSS, and JavaScript. Projects and blog posts are Markdown files. A small Node script reads those files and produces the final pages in `dist/`.
+The source is deliberately ordinary:
 
-That gives me clean directory URLs without making me learn or maintain a frontend framework:
+- projects, articles, logs, and pages are Markdown files;
+- a small Node build script validates the content and generates static HTML;
+- a JSON search index powers the command palette;
+- the finished site can be hosted anywhere that serves static files.
 
-- `content/projects/` becomes `/projects/`
-- `content/posts/` becomes `/blog/`
-- `content/pages/` becomes standalone directories such as `/now/`
-- `content/log.mjs` supplies the short updates on `/log/`
+There is no database, client framework, or dependency chain between the writing and the published page.
 
-## Design choices
+## Editing model
 
-The homepage is an index rather than a sales page. Navigation is plain text, every row is a real link, and recent projects, logs, and writing share one chronological list.
+Each kind of content has its own folder:
 
-The orbital study is the only major visual element. Its motion is deliberately slow, and meteors appear rarely enough to remain incidental. The colour palette uses near-black, warm white, and smoked violet. The layout relies on borders, spacing, and type instead of rounded cards, gradients, or large interface panels.
+- `content/projects/` publishes to `/projects/`;
+- `content/posts/` publishes to `/blog/`;
+- `content/logs/` publishes to `/log/`;
+- `content/pages/` creates standalone pages such as `/now/`.
 
-## Next
+The Obsidian vault is the private editorial layer. Only notes explicitly marked for publication should cross into the repository.
 
-The useful part starts now: adding real work, writing project notes while the details are still fresh, and letting the site become more personal over time.
+## Design decisions
+
+The interface uses rows, borders, and clear type instead of floating panels. A searchable command menu and route tree borrow the useful ideas behind several 21st.dev components, but the implementation is original, framework-free, and shaped around this site rather than dropped in as a demo.
+
+The result is meant to feel more like a well-kept technical notebook than a startup landing page.

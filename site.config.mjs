@@ -3,21 +3,42 @@ export const site = {
   domain: "https://basilamin.com",
   email: "basilaminxyz@gmail.com",
   location: "Dublin, Ireland",
-  description: "Basil Amin's projects, articles, publications, and technical notes.",
-  headline: "Basil Amin: My corner of the internet: projects, articles, publications, and logs.",
-  introduction: "I'm Basil, a student who builds things and explores new ideas. My interests include aerospace, electronics, programming, rocketry, space, defence, biotech, AI and machine learning, and politics. My favourite quote is 'Skeptical scrutiny is the means, in both science and religion, by which deep thoughts can be winnowed from deep nonsense.' -Carl Sagan.",
-  now: "Developing autonomous drone swarm systems for surveying areas.",
-  availability: "Email is open.",
-  socialImageAlt: "Basil Amin projects, notes, publications and experiments",
+  palette: "foundry",
+  birthDate: "2009-02-20",
+  clock: {
+    label: "Dublin",
+    timeZone: "Europe/Dublin"
+  },
+  description: "Projects, field notes, and technical writing by Basil Amin.",
+  headline: [
+    "I try to make stuff.",
+    "Then I record",
+    "where physics",
+    "disagreed. (Unless breaking physics is possible)"
+  ],
+  introduction: "I'm Basil, a student who builds things and explores new ideas. My interests include aerospace, electronics, programming, rocketry, space, defence, biotech, AI and machine learning, and politics.",
+  current: {
+    title: "Now",
+    label: "Relay · Smenos",
+    text: "Building Relay at Dogpatch Labs, creating drone swarm systems and a physics engine",
+    href: "/now/"
+  },
+  availability: "feel free to contact",
+  calendarLink: "basil-amin/30min",
+  quotes: {
+    sagan: "Skeptical scrutiny is the means, in both science and religion, by which deep thoughts can be winnowed from deep nonsense.",
+    saganAttribution: "Carl Sagan"
+  },
+  socialImageAlt: "Basil Amin — projects, field notes, and technical writing",
   socialLinks: [
     { label: "GitHub", href: "https://github.com/BasilAmin", display: "@BasilAmin" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/basil-amin-653231354/", display: "Basil Amin" }
   ],
   navigation: [
-    { label: "Projects", href: "/projects/", description: "Work I have built and documented." },
-    { label: "Log", href: "/log/", description: "Short dated notes and publications from work in progress." },
-    { label: "Blog", href: "/blog/", description: "Long-form articles and technical notes." },
-    { label: "Now", href: "/now/", description: "What I am working on now." },
-    { label: "Contact", href: "/contact/", description: "Email and profiles." }
+    { label: "Projects", href: "/projects/" },
+    { label: "Blog", href: "/blog/" },
+    { label: "Logs", href: "/log/" },
+    { label: "Now", href: "/now/" },
+    { label: "Contact", href: "/contact/" }
   ]
 };
