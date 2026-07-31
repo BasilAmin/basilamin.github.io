@@ -13,8 +13,8 @@ export const site = {
   headline: [
     "I try to make stuff.",
     "Then I record",
-    "where physics",
-    "disagreed. (Unless breaking physics is possible)"
+    "where physics disagreed.",
+    "(Unless breaking physics is possible)"
   ],
   introduction: "I'm Basil, a student who builds things and explores new ideas. My interests include aerospace, electronics, programming, rocketry, space, defence, biotech, AI and machine learning, and politics.",
   current: {
