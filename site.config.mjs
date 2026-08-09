@@ -1,5 +1,5 @@
 export const site = {
-  name: "Basil Amin",
+  name: " I'm Basil Amin",
   domain: "https://basilamin.com",
   email: "basilaminxyz@gmail.com",
   location: "Dublin, Ireland",
@@ -11,22 +11,19 @@ export const site = {
   },
   description: "Projects, field notes, and technical writing by Basil Amin.",
   headline: [
-    "I try to make stuff.",
-    "Then I record",
-    "where physics disagreed.",
-    "(Unless breaking physics is possible)"
+    "Welcome to my corner of the internet."
   ],
   introduction: "I'm Basil, a student who builds things and explores new ideas. My interests include aerospace, electronics, programming, rocketry, space, defence, biotech, AI and machine learning, and politics.",
   current: {
     title: "Now",
     label: "Relay · Smenos",
-    text: "Building Relay at Dogpatch Labs, creating drone swarm systems and a physics engine",
+    text: "Building Relay at Dogpatch Labs, creating Relay, a gantry based robotic chess portal",
     href: "/now/"
   },
   availability: "feel free to contact",
   calendarLink: "basil-amin/30min",
   quotes: {
-    sagan: "Skeptical scrutiny is the means, in both science and religion, by which deep thoughts can be winnowed from deep nonsense.",
+    sagan: "My favourite quote: 'Skeptical scrutiny is the means, in both science and religion, by which deep thoughts can be winnowed from deep nonsense.'",
     saganAttribution: "Carl Sagan"
   },
   socialImageAlt: "Basil Amin — projects, field notes, and technical writing",
