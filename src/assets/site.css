@@ -2048,14 +2048,16 @@ body[data-location-open="true"]{
 
 .portal{
   position: absolute;
-  z-index: 3;
-  width: 35%;
+  z-index: 2;
+  width: 34%;
   aspect-ratio: 0.46;
   border: 0;
   border-radius: 50%;
-  filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 30px color-mix(in srgb, currentColor 78%, transparent));
+  background: #010306;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 42%, transparent), inset 0 0 22px #000, 0 0 10px color-mix(in srgb, currentColor 32%, transparent);
+  filter: none;
   transform: rotateX(-5deg) rotateY(18deg);
-  will-change: transform, filter;
+  will-change: transform;
 }
 
 .portal::before,
@@ -2067,18 +2069,20 @@ body[data-location-open="true"]{
 }
 
 .portal::before{
-  inset: -14%;
-  background: radial-gradient(ellipse, transparent 44%, color-mix(in srgb, currentColor 18%, transparent) 52%, transparent 68%);
-  opacity: 0.8;
-  filter: blur(8px);
-  animation: portal-breathe 1.8s ease-in-out infinite;
+  inset: -12%;
+  z-index: -2;
+  background: radial-gradient(ellipse, transparent 48%, color-mix(in srgb, currentColor 14%, transparent) 54%, color-mix(in srgb, currentColor 5%, transparent) 63%, transparent 72%);
+  opacity: 0.68;
+  filter: blur(6px);
+  animation: portal-breathe 2.8s ease-in-out infinite;
 }
 
 .portal::after{
-  inset: 8%;
-  z-index: -2;
-  background: #010306;
-  box-shadow: inset 0 0 28px #000, inset 0 0 15px color-mix(in srgb, currentColor 22%, transparent);
+  inset: 5%;
+  z-index: 1;
+  border: 1px solid color-mix(in srgb, currentColor 26%, transparent);
+  background: radial-gradient(ellipse at 45% 50%, color-mix(in srgb, currentColor 7%, #000) 0 8%, #010205 48%, #000 76%);
+  box-shadow: inset 0 0 18px #000;
 }
 
 .portal-haze,
@@ -2089,48 +2093,50 @@ body[data-location-open="true"]{
 }
 
 .portal-haze{
-  inset: -9%;
+  inset: -5%;
   z-index: -1;
-  border: 8px solid color-mix(in srgb, currentColor 30%, transparent);
-  filter: blur(9px);
-  animation: portal-breathe 2.2s ease-in-out infinite reverse;
+  border: 3px solid color-mix(in srgb, currentColor 28%, transparent);
+  filter: blur(5px);
+  opacity: 0.68;
+  animation: portal-breathe 3.4s ease-in-out infinite reverse;
 }
 
 .portal-rim{
-  inset: -2%;
-  z-index: 2;
-  background: conic-gradient(from 10deg, transparent 0 3%, currentColor 5% 12%, #fff 14%, currentColor 16% 29%, transparent 31% 35%, currentColor 38% 61%, #fff 63%, currentColor 66% 86%, transparent 89% 93%, currentColor 96%);
-  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 11px currentColor);
-  -webkit-mask: radial-gradient(ellipse, transparent 57%, #000 59% 68%, transparent 71%);
-  mask: radial-gradient(ellipse, transparent 57%, #000 59% 68%, transparent 71%);
-  animation: portal-rim-flow 2.8s linear infinite;
+  inset: -1.5%;
+  z-index: 3;
+  background: conic-gradient(from 14deg, currentColor 0 8%, transparent 9% 12%, currentColor 14% 29%, color-mix(in srgb, currentColor 55%, transparent) 31% 36%, currentColor 39% 57%, transparent 59% 62%, currentColor 64% 84%, color-mix(in srgb, currentColor 45%, transparent) 86% 91%, currentColor 94% 100%);
+  filter: drop-shadow(0 0 3px currentColor);
+  -webkit-mask: radial-gradient(ellipse, transparent 62%, #000 63% 66%, transparent 67%);
+  mask: radial-gradient(ellipse, transparent 62%, #000 63% 66%, transparent 67%);
+  animation: portal-rim-flow 3.8s ease-in-out infinite;
 }
 
 .portal-core{
   position: absolute;
-  inset: 7%;
-  z-index: 1;
+  inset: 3%;
+  z-index: 4;
   border-radius: inherit;
   overflow: hidden;
-  background: radial-gradient(ellipse at 42% 48%, color-mix(in srgb, currentColor 18%, #000) 0 4%, #02050a 31%, #000 64%, color-mix(in srgb, currentColor 25%, #000) 92%);
-  box-shadow: inset 0 0 35px #000, inset 0 0 12px currentColor;
+  background: transparent;
+  box-shadow: none;
 }
 
 .portal-core::before,
 .portal-core::after{
   position: absolute;
-  inset: -18%;
-  border: 2px solid color-mix(in srgb, currentColor 65%, transparent);
-  border-radius: 46%;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, currentColor 48%, transparent);
+  border-radius: 50%;
   content: "";
-  filter: blur(1px);
-  animation: portal-vortex 2.8s linear infinite;
+  filter: blur(0.5px);
+  animation: portal-vortex 4.8s ease-in-out infinite;
 }
 
 .portal-core::after{
-  inset: -8%;
-  border-style: dashed;
-  animation-duration: 2.6s;
+  inset: 4%;
+  border-color: color-mix(in srgb, currentColor 18%, transparent);
+  border-style: solid;
+  animation-duration: 3.8s;
   animation-direction: reverse;
 }
 
@@ -2138,14 +2144,14 @@ body[data-location-open="true"]{
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 135%;
-  height: 22%;
-  border-top: 1px solid currentColor;
+  width: 118%;
+  height: 15%;
+  border-top: 2px solid currentColor;
   border-radius: 50%;
-  opacity: 0.42;
-  filter: drop-shadow(0 0 4px currentColor);
+  opacity: 0.28;
+  filter: blur(0.4px) drop-shadow(0 0 3px currentColor);
   transform: translate(-50%, -50%) rotate(calc(var(--filament, 0) * 60deg));
-  animation: portal-filament 2.4s ease-in-out calc(var(--filament, 0) * -0.7s) infinite;
+  animation: portal-filament 3.2s ease-in-out calc(var(--filament, 0) * -0.7s) infinite;
 }
 
 .portal-core i:nth-child(1){ --filament: 1; }
@@ -2164,22 +2170,22 @@ body[data-location-open="true"]{
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 3px;
-  height: 18px;
+  width: 2px;
+  height: 13px;
   border-radius: 50%;
   background: currentColor;
-  box-shadow: 0 0 8px currentColor;
+  box-shadow: 0 0 5px currentColor;
   opacity: 0;
   transform: rotate(calc(var(--spark) * 36deg)) translateY(calc(-1 * var(--spark-radius))) scaleY(0.4);
   transform-origin: 0 var(--spark-radius);
-  animation: portal-spark 2.3s ease-out calc(var(--spark) * -0.23s) infinite;
+  animation: portal-spark 3.1s ease-out calc(var(--spark) * -0.31s) infinite;
 }
 
 .portal-blue{
   top: 8%;
   right: 7%;
   color: #24a8ff;
-  animation: portal-blue-drift 12s ease-in-out infinite;
+  animation: portal-blue-drift 14s ease-in-out infinite;
 }
 
 .portal-orange{
@@ -2187,45 +2193,32 @@ body[data-location-open="true"]{
   left: 4%;
   color: #ff6a00;
   transform: rotateX(-5deg) rotateY(-18deg);
-  animation: portal-orange-drift 12s ease-in-out infinite;
+  animation: portal-orange-drift 14s ease-in-out infinite;
 }
-
-.robot-webgl{
-  position: absolute;
-  z-index: 5;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.webgl-ready .personality-core{ display: none; }
 
 .personality-core{
   position: absolute;
   z-index: 5;
   top: 44%;
   left: 51%;
-  width: 0;
-  height: 0;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
   will-change: top, left, opacity, transform, filter;
-  animation: core-transfer 12s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-}
-
-.portal-scene:hover .personality-core{
-  animation-play-state: paused;
+  animation: core-transfer 14s linear infinite;
 }
 
 .core-rig{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 88px;
-  height: 88px;
-  margin: -44px 0 0 -44px;
-  transform-style: preserve-3d;
-  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.42));
-  animation: core-panic 1.1s steps(2, end) infinite;
+  inset: 0;
+  animation: core-portal-mask 14s linear infinite;
+}
+
+.core-body{
+  position: absolute;
+  inset: 0;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.38));
+  animation: core-panic 1.2s steps(2, end) infinite;
 }
 
 .core-shell{
@@ -2235,7 +2228,6 @@ body[data-location-open="true"]{
   border-radius: 50%;
   background: radial-gradient(circle at 34% 28%, #ffffff 0 8%, #dce4e8 30%, #87959e 72%, #44515a 100%);
   box-shadow: inset -10px -12px 18px rgba(14, 25, 33, 0.52), inset 8px 5px 12px rgba(255, 255, 255, 0.72), 0 0 10px rgba(200, 229, 244, 0.24);
-  transform-style: preserve-3d;
 }
 
 .core-shell::before{
@@ -2247,7 +2239,7 @@ body[data-location-open="true"]{
   border-radius: 50%;
   background: radial-gradient(circle at 65% 35%, #aab5bb, #45535c 68%, #172129);
   box-shadow: 8px 7px 14px rgba(0, 0, 0, 0.48);
-  transform: translateZ(-18px) scale(0.92);
+  transform: scale(0.92);
 }
 
 .shell-panel{
@@ -2259,8 +2251,8 @@ body[data-location-open="true"]{
   background: linear-gradient(90deg, rgba(65, 78, 86, 0.55), rgba(222, 231, 235, 0.5));
 }
 
-.panel-left{ left: -6%; border-radius: 50% 20% 20% 50%; transform: translateZ(5px) rotateY(-18deg) rotateZ(8deg); }
-.panel-right{ right: -6%; border-radius: 20% 50% 50% 20%; transform: translateZ(5px) rotateY(18deg) rotateZ(-8deg); }
+.panel-left{ left: -6%; border-radius: 50% 20% 20% 50%; transform: rotate(8deg); }
+.panel-right{ right: -6%; border-radius: 20% 50% 50% 20%; transform: rotate(-8deg); }
 
 .shell-seam{
   position: absolute;
@@ -2283,7 +2275,7 @@ body[data-location-open="true"]{
   border-radius: 50%;
   background: radial-gradient(circle, #15222c 0 50%, #05090c 72%);
   box-shadow: inset 0 0 12px #020405, 0 0 0 2px #9ba7ad;
-  transform: translate3d(-50%, -50%, 19px);
+  transform: translate(-50%, -50%);
 }
 
 .core-eye{
@@ -2333,8 +2325,7 @@ body[data-location-open="true"]{
   border: 4px solid #8e9aa1;
   border-radius: 50%;
   background: transparent;
-  transform-style: preserve-3d;
-  transform: translate3d(-50%, 0, -5px) rotateX(28deg);
+  transform: translateX(-50%);
 }
 
 .handle-top{ top: -7px; border-bottom-color: transparent; }
@@ -2349,7 +2340,7 @@ body[data-location-open="true"]{
   border-radius: 3px;
   background: #9ea9ae;
   box-shadow: 9px -2px 0 -1px #ff9a3c;
-  transform: translateZ(8px) rotate(-28deg);
+  transform: rotate(-28deg);
 }
 
 .portal-floor{
@@ -2366,57 +2357,83 @@ body[data-location-open="true"]{
 }
 
 @keyframes portal-blue-drift {
-  0%, 42%, 58%, 100% { transform: rotateX(-5deg) rotateY(18deg) translateY(0) scale(1); filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 22px currentColor); }
-  48%, 52% { transform: rotateX(-1deg) rotateY(10deg) translateY(-8px) scale(1.12, 0.96); filter: drop-shadow(0 0 13px currentColor) drop-shadow(0 0 42px currentColor); }
-  75% { transform: rotateX(-3deg) rotateY(14deg) translateY(-5px) scale(1.035); }
+  0%, 43%, 51%, 93%, 100% { transform: rotateX(-5deg) rotateY(18deg) translateY(0) scale(1); }
+  47%, 49%, 97%, 99% { transform: rotateX(-4deg) rotateY(16deg) translateY(-2px) scale(1.035, 0.985); }
 }
 
 @keyframes portal-orange-drift {
-  0%, 8%, 92%, 100% { transform: rotateX(-5deg) rotateY(-18deg) translateY(0) scale(1); filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 22px currentColor); }
-  2%, 98% { transform: rotateX(-1deg) rotateY(-10deg) translateY(8px) scale(1.12, 0.96); filter: drop-shadow(0 0 13px currentColor) drop-shadow(0 0 42px currentColor); }
-  25%, 75% { transform: rotateX(-3deg) rotateY(-14deg) translateY(5px) scale(1.035); }
+  0%, 8%, 48%, 58%, 92%, 100% { transform: rotateX(-5deg) rotateY(-18deg) translateY(0) scale(1); }
+  2%, 52%, 98% { transform: rotateX(-4deg) rotateY(-16deg) translateY(2px) scale(1.035, 0.985); }
 }
 
 @keyframes portal-rim-flow {
-  50% { rotate: 7deg; filter: drop-shadow(0 0 7px #fff) drop-shadow(0 0 16px currentColor); }
+  0%, 100% { transform: rotate(-0.8deg) scale(1); opacity: 0.94; }
+  50% { transform: rotate(0.8deg) scale(1.008, 0.997); opacity: 1; filter: drop-shadow(0 0 5px currentColor); }
 }
 
 @keyframes portal-breathe {
-  50% { opacity: 0.55; transform: scale(1.06, 0.98); }
+  50% { opacity: 0.42; transform: scale(1.025, 0.99); }
 }
 
 @keyframes portal-vortex {
-  to { transform: rotate(360deg) scale(1.08); }
+  0%, 100% { transform: rotate(-1deg) scale(0.995); opacity: 0.38; }
+  50% { transform: rotate(1deg) scale(1.008); opacity: 0.62; }
 }
 
 @keyframes portal-filament {
-  0%, 100% { opacity: 0.18; transform: translate(-50%, -50%) rotate(calc(var(--filament) * 60deg)) scaleX(0.72); }
-  50% { opacity: 0.72; transform: translate(-50%, -50%) rotate(calc(var(--filament) * 60deg + 42deg)) scaleX(1.1); }
+  0%, 100% { opacity: 0.08; transform: translate(-50%, -50%) rotate(calc(var(--filament) * 60deg - 3deg)) scaleX(0.64); }
+  50% { opacity: 0.36; transform: translate(-50%, -50%) rotate(calc(var(--filament) * 60deg + 4deg)) scaleX(1.02); }
 }
 
 @keyframes portal-spark {
-  0%, 65%, 100% { opacity: 0; }
-  72% { opacity: 0.9; transform: rotate(calc(var(--spark) * 36deg)) translateY(calc(-1 * var(--spark-radius))) scaleY(0.5); }
-  90% { opacity: 0; transform: rotate(calc(var(--spark) * 36deg + 7deg)) translateY(calc(-1.14 * var(--spark-radius))) scaleY(1.2); }
+  0%, 72%, 100% { opacity: 0; }
+  78% { opacity: 0.65; transform: rotate(calc(var(--spark) * 36deg)) translateY(calc(-1 * var(--spark-radius))) scaleY(0.35); }
+  92% { opacity: 0; transform: rotate(calc(var(--spark) * 36deg + 4deg)) translateY(calc(-1.09 * var(--spark-radius))) scaleY(0.9); }
 }
 
 @keyframes core-transfer {
-  0% { top: 69%; left: 20%; opacity: 0; transform: rotateX(-18deg) rotateY(-65deg) rotateZ(-32deg) scale(0.06, 0.78); filter: blur(4px); }
-  4% { opacity: 1; transform: rotateX(12deg) rotateY(-38deg) rotateZ(18deg) scale(0.4, 1.08); filter: blur(1px); }
-  12% { top: 62%; left: 29%; transform: rotateX(-16deg) rotateY(26deg) rotateZ(-18deg) scale(0.82); filter: blur(0); }
-  25% { top: 52%; left: 40%; transform: rotateX(22deg) rotateY(-34deg) rotateZ(22deg) scale(1.04); }
-  42% { top: 34%; left: 65%; opacity: 1; transform: rotateX(-28deg) rotateY(42deg) rotateZ(-25deg) scale(0.78); filter: blur(0); }
-  48% { top: 27%; left: 77%; opacity: 1; transform: rotateX(14deg) rotateY(68deg) rotateZ(18deg) scale(0.34, 1.05); filter: blur(1px); }
-  50% { top: 24%; left: 82%; opacity: 0; transform: rotateX(30deg) rotateY(88deg) rotateZ(35deg) scale(0.04, 0.82); filter: blur(5px); }
-  51%, 96% { top: 24%; left: 82%; opacity: 0; transform: rotateX(30deg) rotateY(88deg) rotateZ(35deg) scale(0.04, 0.82); filter: blur(5px); }
-  97%, 100% { top: 69%; left: 20%; opacity: 0; transform: rotateX(-18deg) rotateY(-65deg) rotateZ(-32deg) scale(0.06, 0.78); filter: blur(4px); }
+  0% { top: 69%; left: 18%; opacity: 0; transform: rotate(-18deg) scale(0.72); filter: drop-shadow(0 0 8px #ff6a00); }
+  2% { opacity: 1; transform: rotate(-13deg) scale(0.78); }
+  5% { top: 67%; left: 21%; transform: rotate(-8deg) scale(0.86); }
+  8% { top: 64%; left: 25%; transform: rotate(-4deg) scale(0.92); filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.38)); }
+  15% { top: 58%; left: 33%; transform: rotate(6deg) scale(0.98); }
+  25% { top: 49%; left: 47%; transform: rotate(-7deg) scale(1); }
+  36% { top: 38%; left: 63%; transform: rotate(8deg) scale(0.94); }
+  42% { top: 31%; left: 73%; transform: rotate(-4deg) scale(0.87); filter: drop-shadow(0 0 5px #24a8ff); }
+  46% { top: 27%; left: 79%; opacity: 1; transform: rotate(5deg) scale(0.8); filter: drop-shadow(0 0 9px #24a8ff); }
+  49% { top: 23%; left: 84%; opacity: 0; transform: rotate(13deg) scale(0.72); }
+  50% { top: 69%; left: 18%; opacity: 0; transform: rotate(-18deg) scale(0.72); filter: drop-shadow(0 0 8px #ff6a00); }
+  52% { opacity: 1; transform: rotate(-13deg) scale(0.78); }
+  55% { top: 67%; left: 21%; transform: rotate(-8deg) scale(0.86); }
+  58% { top: 64%; left: 25%; transform: rotate(-4deg) scale(0.92); filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.38)); }
+  65% { top: 58%; left: 33%; transform: rotate(6deg) scale(0.98); }
+  75% { top: 49%; left: 47%; transform: rotate(-7deg) scale(1); }
+  86% { top: 38%; left: 63%; transform: rotate(8deg) scale(0.94); }
+  92% { top: 31%; left: 73%; transform: rotate(-4deg) scale(0.87); filter: drop-shadow(0 0 5px #24a8ff); }
+  96% { top: 27%; left: 79%; opacity: 1; transform: rotate(5deg) scale(0.8); filter: drop-shadow(0 0 9px #24a8ff); }
+  99%, 100% { top: 23%; left: 84%; opacity: 0; transform: rotate(13deg) scale(0.72); }
+}
+
+@keyframes core-portal-mask {
+  0% { clip-path: inset(0 100% 0 0); }
+  2% { clip-path: inset(0 72% 0 0); }
+  5% { clip-path: inset(0 28% 0 0); }
+  8%, 42% { clip-path: inset(0); }
+  46% { clip-path: inset(0 0 0 45%); }
+  49% { clip-path: inset(0 0 0 100%); }
+  50% { clip-path: inset(0 100% 0 0); }
+  52% { clip-path: inset(0 72% 0 0); }
+  55% { clip-path: inset(0 28% 0 0); }
+  58%, 92% { clip-path: inset(0); }
+  96% { clip-path: inset(0 0 0 45%); }
+  99%, 100% { clip-path: inset(0 0 0 100%); }
 }
 
 @keyframes core-panic {
-  0%, 100% { transform: rotateX(-4deg) rotateY(-7deg) rotateZ(-5deg) translate3d(0, 0, 0); }
-  25% { transform: rotateX(5deg) rotateY(8deg) rotateZ(4deg) translate3d(1px, -2px, 2px); }
-  50% { transform: rotateX(-7deg) rotateY(4deg) rotateZ(-2deg) translate3d(-2px, 1px, -2px); }
-  75% { transform: rotateX(3deg) rotateY(-9deg) rotateZ(6deg) translate3d(2px, 1px, 3px); }
+  0%, 100% { transform: rotate(-3deg) translate(0); }
+  25% { transform: rotate(3deg) translate(1px, -1px); }
+  50% { transform: rotate(-2deg) translate(-1px, 1px); }
+  75% { transform: rotate(4deg) translate(1px, 1px); }
 }
 
 @keyframes core-look {
@@ -2491,7 +2508,7 @@ body[data-location-open="true"]{
   .portal-scene{ width: 104px; justify-self: center; transform: translateY(-12px); }
   .portal-energy i{ --spark-radius: 38px; height: 9px; }
   .home-copyright{ bottom: 7px; font-size: 8px; }
-  .core-rig{ width: 54px; height: 54px; margin: -27px 0 0 -27px; }
+  .personality-core{ width: 34px; height: 34px; margin: -17px 0 0 -17px; }
   .core-handle{ border-width: 2px; }
   .core-face{ border-width: 2px; }
   .core-antenna{ width: 10px; height: 2px; }
@@ -2506,8 +2523,9 @@ body[data-location-open="true"]{
   .portal,
   .personality-core,
   .core-rig,
+  .core-body,
   .core-eye,
   .core-eyelid{ animation: none; }
-  .personality-core{ top: 44%; left: 51%; opacity: 1; transform: rotate(-8deg) scale(0.9); filter: none; }
+  .personality-core{ top: 44%; left: 51%; opacity: 1; transform: rotate(-8deg) scale(0.78); filter: none; }
   .core-eye{ transform: translate(-50%, -50%); }
 }

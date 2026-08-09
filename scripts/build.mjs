@@ -426,7 +426,7 @@ function renderHomeQuote() {
 function renderPortalScene() {
   const energy = Array.from({ length: 10 }, (_, index) => `<i style="--spark:${index}"></i>`).join("");
   const portal = (color) => `<div class="portal portal-${color}"><span class="portal-haze"></span><span class="portal-rim"></span><span class="portal-core"><i></i><i></i><i></i></span><span class="portal-energy">${energy}</span></div>`;
-  return `<div class="portal-scene" aria-hidden="true">${portal("blue")}${portal("orange")}<canvas class="robot-webgl"></canvas><div class="personality-core"><div class="core-rig"><span class="core-handle handle-top"></span><span class="core-handle handle-bottom"></span><div class="core-shell"><span class="shell-panel panel-left"></span><span class="shell-panel panel-right"></span><span class="shell-seam"></span><div class="core-face"><span class="core-eyelid lid-top"></span><span class="core-eyelid lid-bottom"></span><span class="core-eye"><i></i></span></div></div><span class="core-antenna"></span></div></div><div class="portal-floor"></div></div>`;
+  return `<div class="portal-scene" aria-hidden="true">${portal("blue")}${portal("orange")}<div class="personality-core"><div class="core-rig"><div class="core-body"><span class="core-handle handle-top"></span><span class="core-handle handle-bottom"></span><div class="core-shell"><span class="shell-panel panel-left"></span><span class="shell-panel panel-right"></span><span class="shell-seam"></span><div class="core-face"><span class="core-eyelid lid-top"></span><span class="core-eyelid lid-bottom"></span><span class="core-eye"><i></i></span></div></div><span class="core-antenna"></span></div></div></div><div class="portal-floor"></div></div>`;
 }
 
 function renderHome() {
