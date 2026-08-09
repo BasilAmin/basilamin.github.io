@@ -20,7 +20,6 @@ Good commit messages are specific:
 
 ```text
 Publish Relay field note
-Update Now page
 Add Smart Sole project
 Revise contact copy
 Fix mobile spacing
@@ -29,14 +28,14 @@ Fix mobile spacing
 ## Source map
 
 ```text
-site.config.mjs        Identity, homepage copy, palette, links, navigation, clock, age, calendar, quote
+site.config.mjs        Identity, homepage copy, palette, links, navigation, and calendar
 content/projects/      One Markdown file per project
 content/posts/         One Markdown file per blog article
 content/logs/          One Markdown file per build log
-content/pages/         Now and standalone pages
+content/pages/         Optional standalone pages
 public/                Favicon, social card, CNAME, and uploaded images
 src/assets/site.css    Typography, colours, layout, themes, and responsive rules
-src/assets/site.js     Search, text disruption, theme, clock, age, filters, and dialogs
+src/assets/site.js     Theme, project filters, and copy buttons
 scripts/build.mjs      HTML templates and static-site generator
 scripts/new.mjs        New-content command
 dist/                  Generated website; never edit directly
@@ -54,41 +53,14 @@ domain: "https://basilamin.com",
 email: "basilaminxyz@gmail.com",
 location: "Dublin, Ireland",
 palette: "foundry",
-birthDate: "2009-02-20",
-clock: {
-  label: "Dublin",
-  timeZone: "Europe/Dublin"
-},
 headline: [
-  "I build systems.",
-  "Then I write down",
-  "where reality",
-  "disagreed."
+  "I build ambitious things,",
+  "then write down what I learn."
 ],
 introduction: "Your introduction."
 ```
 
 Each `headline` item is one intended line.
-
-The current-work strip uses:
-
-```js
-current: {
-  title: "Now",
-  label: "Relay · Smenos · mathematics",
-  text: "What you are working on now.",
-  href: "/now/"
-}
-```
-
-The quotation appears directly beneath the homepage statement and uses:
-
-```js
-quotes: {
-  sagan: "Quotation text",
-  saganAttribution: "Carl Sagan"
-}
-```
 
 ## Email, social links, and contact
 
@@ -112,35 +84,13 @@ calendarLink: "basil-amin/30min"
 
 Change that value when the Cal.com event changes.
 
-## Clock and live age
-
-```js
-clock: {
-  label: "Dublin",
-  timeZone: "Europe/Dublin"
-}
-```
-
-Use valid IANA names such as `Europe/Dublin`, `America/New_York`, or `Asia/Tokyo`.
-
-Visitors can change the displayed location. Their choice is stored only in their browser.
-
-The age is calculated from:
-
-```js
-birthDate: "2009-02-20"
-```
-
-To remove the public age, delete the `clock-age` span in `renderHeader()` inside `scripts/build.mjs`, then remove the age calculation from `initLocalClock()` in `src/assets/site.js`.
-
 ## Navigation
 
 ```js
 navigation: [
   { label: "Projects", href: "/projects/" },
   { label: "Blog", href: "/blog/" },
-  { label: "Logs", href: "/log/" },
-  { label: "Now", href: "/now/" },
+  { label: "Log", href: "/log/" },
   { label: "Contact", href: "/contact/" }
 ]
 ```
@@ -216,16 +166,6 @@ draft: false
 
 Logs are deliberately shorter and faster than articles.
 
-## Edit the Now page
-
-Open:
-
-```text
-content/pages/now.md
-```
-
-Update the writing and the `updated` date when it materially changes.
-
 ## Add another page
 
 ```bash
@@ -273,17 +213,15 @@ Choose the palette in `site.config.mjs`:
 palette: "foundry"
 ```
 
-Available values:
+The site uses one deliberately maintained palette:
 
 ```text
 foundry    Carbon, parchment, oxide, and moss. Recommended.
-merlot     Blackened plum, limestone, garnet, and lichen.
-graphite   Neutral graphite, chalk, rust, and muted green.
 ```
 
-Each palette contains a matched dark and light mode. The visitor-facing theme button switches between those two modes; it does not change the selected palette.
+Foundry contains matched dark and light modes. The visitor-facing theme button switches between them.
 
-The variables for all three palettes are at the top of `src/assets/site.css`:
+The palette variables are at the top of `src/assets/site.css`:
 
 ```css
 --bg
@@ -300,19 +238,11 @@ The variables for all three palettes are at the top of `src/assets/site.css`:
 --moss
 ```
 
-`foundry` is the default because it has the strongest balance of warmth, contrast, technical character, and long-form readability. See `COLOUR-PALETTES.md` for the design rationale and exact values.
+Foundry balances warmth, contrast, technical character, and long-form readability. See `COLOUR-PALETTES.md` for the design rationale and exact values.
 
 ## Fonts
 
 Instrument Serif is the display face. Instrument Sans is the body face. The web-font request is generated in `scripts/build.mjs`; fallback stacks are near the top of `src/assets/site.css`.
-
-## Text disruption
-
-Elements marked with `data-scramble` receive the disruption effect. Its logic is in `src/assets/site.js`. It automatically disables for visitors who prefer reduced motion.
-
-## Search
-
-`Cmd/Ctrl + K` and `/` open site search. The index is generated from every published project, article, log, and page.
 
 ## Social card, favicon, and domain
 

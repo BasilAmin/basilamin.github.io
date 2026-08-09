@@ -56,7 +56,7 @@ Run `npm run build` and publish `dist/`.
 2. Edit source files, not `dist/`.
 3. Run `npm run check`.
 4. Run `npm run preview`.
-5. Check homepage, projects, blog, logs, Now, contact, search, themes, clock, and 404.
+5. Check homepage, projects, blog, logs, contact, both themes, and 404.
 6. Check desktop and mobile widths.
 7. Review `git status` and `git diff`.
 8. Commit and push.

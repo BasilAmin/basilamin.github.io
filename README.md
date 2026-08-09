@@ -1,6 +1,6 @@
 # basilamin.com
 
-A hand-built static personal website for projects, a blog, build logs, a current-work note, and contact. Markdown is transformed into the finished site by a small Node build script.
+A hand-built static personal website for projects, writing, field notes, and contact. Markdown is transformed into the finished site by a small Node build script.
 
 Repository:
 
@@ -45,13 +45,13 @@ npm run new -- page "Page title"
 ## Main source files
 
 ```text
-site.config.mjs        Identity, copy, links, clock, birth date, calendar, quote
+site.config.mjs        Identity, homepage copy, links, navigation, calendar
 content/projects/      Project case studies
 content/posts/         Blog articles
 content/logs/          Build logs
-content/pages/         Now and standalone pages
+content/pages/         Optional standalone pages
 src/assets/site.css    Visual system and themes
-src/assets/site.js     Search, disruption, theme, clock, and live age
+src/assets/site.js     Theme, project filters, and copy buttons
 scripts/build.mjs      Page templates and site generator
 public/                Social card, favicon, CNAME, and images
 dist/                  Generated output; never edit directly

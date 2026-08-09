@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A hand-built personal site for projects, logs, writing, and a public Now page.",
+  "description": "A hand-built personal site for projects, field notes, and writing.",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",

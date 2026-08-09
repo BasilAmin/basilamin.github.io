@@ -95,7 +95,7 @@ Open the address printed in the terminal, normally:
 http://localhost:3000
 ```
 
-Check the centred homepage statement and quotation, Projects, Blog, Logs, Now, Contact, search, both themes, clock, and mobile layout.
+Check the homepage, Projects, Blog, Log, Contact, both themes, and mobile layout.
 
 Stop the server with `Ctrl+C`.
 

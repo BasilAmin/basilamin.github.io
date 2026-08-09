@@ -314,14 +314,8 @@ function renderCommandPalette() {
 }
 
 function renderLocationDialog() {
-  const presets = [
-    ["Dublin", "Europe/Dublin"],
-    ["London", "Europe/London"],
-    ["New York", "America/New_York"],
-    ["San Francisco", "America/Los_Angeles"],
-    ["Dubai", "Asia/Dubai"],
-    ["Tokyo", "Asia/Tokyo"]
-  ].map(([label, zone]) => `<button type="button" data-location-preset data-location-label="${escapeHtml(label)}" data-location-zone="${escapeHtml(zone)}">${escapeHtml(label)}</button>`).join("");
+  const presets = [["Dublin", "Europe/Dublin"], ["London", "Europe/London"], ["New York", "America/New_York"], ["San Francisco", "America/Los_Angeles"], ["Dubai", "Asia/Dubai"], ["Tokyo", "Asia/Tokyo"]]
+    .map(([label, zone]) => `<button type="button" data-location-preset data-location-label="${escapeHtml(label)}" data-location-zone="${escapeHtml(zone)}">${escapeHtml(label)}</button>`).join("");
   return `<dialog class="location-dialog" data-location-dialog aria-labelledby="location-title"><form method="dialog" class="location-frame" data-location-form><div class="location-heading"><div><h2 id="location-title">Displayed place</h2><p>This changes the clock in this browser. The site default remains Dublin.</p></div><button type="button" data-location-close aria-label="Close location settings">Esc</button></div><div class="location-presets" aria-label="Common locations">${presets}</div><label for="location-label">Place name</label><input id="location-label" name="label" autocomplete="off" data-location-label-input><label for="location-zone">IANA time zone</label><input id="location-zone" name="zone" autocomplete="off" spellcheck="false" placeholder="Europe/Dublin" data-location-zone-input><p class="location-error" data-location-error aria-live="polite"></p><div class="location-actions"><button type="button" data-location-reset>Reset to Dublin</button><button type="submit">Save</button></div></form></dialog>`;
 }
 
@@ -429,12 +423,15 @@ function renderHomeQuote() {
   return `<figure class="home-quote"><blockquote>“${escapeHtml(site.quotes.sagan)}”</blockquote><figcaption>— ${escapeHtml(site.quotes.saganAttribution)}</figcaption></figure>`;
 }
 
-function renderHome(projects, posts, logs) {
-  const latestPosts = posts.slice(0, 3);
-  const latestLogs = logs.slice(0, 3);
-  const featuredProjects = projects.filter((project) => project.featured === true);
+function renderPortalScene() {
+  const faces = ["front", "back", "right", "left", "top", "bottom"].map((face) => `<span class="cube-face face-${face}"></span>`).join("");
+  const connectors = Array.from({ length: 8 }, (_, index) => `<i style="--edge:${index}"></i>`).join("");
+  return `<div class="portal-scene" aria-hidden="true"><div class="portal portal-blue"><span></span></div><div class="portal portal-orange"><span></span></div><div class="tesseract"><div class="tesseract-cube cube-outer">${faces}</div><div class="tesseract-cube cube-inner">${faces}</div><div class="tesseract-links">${connectors}</div></div><div class="portal-floor"></div></div>`;
+}
+
+function renderHome() {
   const headline = site.headline.map((line, index) => `<span class="headline-line${index === site.headline.length - 1 ? " headline-line-accent" : ""}" style="--line-index:${index}" data-scramble data-scramble-start="${180 + index * 120}">${escapeHtml(line)}</span>`).join("");
-  return `<div class="site-shell home"><section class="home-masthead"><div class="home-copy"><h1 aria-label="${escapeHtml(site.headline.join(" "))}">${headline}</h1>${renderHomeQuote()}<p>${escapeHtml(site.introduction)}</p><div class="home-links"><a href="mailto:${escapeHtml(site.email)}">Email</a>${site.socialLinks.map((link) => `<a href="${escapeHtml(safeUrl(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</div></div></section><a class="now-strip" href="${escapeHtml(site.current.href)}" data-reveal><span>${escapeHtml(site.current.title)}</span><strong data-scramble>${escapeHtml(site.current.label)}</strong><p>${escapeHtml(site.current.text)}</p><span>Open note →</span></a><div class="writing-columns writing-first" data-reveal><section class="home-section"><div class="section-copy">${renderSectionHeader("Blog", "/blog/", "All articles")}<p>View some of my writing here.</p></div><div class="writing-list">${latestPosts.map((post) => renderWritingRow({ kind: `${post.readingTime} min`, date: post.date, title: post.title, description: post.description || "", href: `/blog/${post.slug}/` })).join("")}</div></section><section class="home-section"><div class="section-copy">${renderSectionHeader("Build log", "/log/", "All entries")}<p>Notes from the work while it is still changing.</p></div><div class="writing-list">${latestLogs.map((log) => renderWritingRow({ kind: "Log", date: log.date, title: log.title, description: log.summary || log.description || "", href: `/log/${log.slug}/` })).join("")}</div></section></div><section class="home-section projects-home" data-reveal>${renderSectionHeader("Selected projects", "/projects/", "All projects")}${renderHomeProjects(featuredProjects)}</section></div>`;
+  return `<div class="site-shell home"><section class="home-masthead"><div class="home-copy"><h1 aria-label="${escapeHtml(site.headline.join(" "))}">${headline}</h1>${renderHomeQuote()}<p>${escapeHtml(site.introduction)}</p><div class="home-links"><a href="mailto:${escapeHtml(site.email)}">Email</a>${site.socialLinks.map((link) => `<a href="${escapeHtml(safeUrl(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</div></div>${renderPortalScene()}</section></div>`;
 }
 
 function renderPageHeading(title, description, extra = "") {
@@ -482,7 +479,7 @@ function renderContact() {
 }
 
 function renderCalEmbed() {
-  return `<script>(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");Cal("init","30min",{origin:"https://app.cal.com"});Cal.config=Cal.config||{};Cal.config.forwardQueryParams=true;Cal.ns["30min"]("inline",{elementOrSelector:"#my-cal-inline-30min",config:{layout:"month_view",useSlotsViewOnSmallScreen:"true"},calLink:"${escapeHtml(site.calendarLink)}"});Cal.ns["30min"]("ui",{hideEventTypeDetails:false,layout:"month_view",styles:{branding:{brandColor:"#9d5f45"}}});</script>`;
+  return `<script>(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");Cal("init","30min",{origin:"https://app.cal.com"});Cal.config=Cal.config||{};Cal.config.forwardQueryParams=true;Cal.ns["30min"]("inline",{elementOrSelector:"#my-cal-inline-30min",config:{layout:"month_view",useSlotsViewOnSmallScreen:"true"},calLink:"${escapeHtml(site.calendarLink)}"});Cal.ns["30min"]("ui",{hideEventTypeDetails:false,layout:"month_view",styles:{branding:{brandColor:"#ff7a18"}}});</script>`;
 }
 
 function renderCustomPage(page) {

@@ -18,7 +18,7 @@ export const site = {
     title: "Now",
     label: "Relay · Smenos",
     text: "Building Relay at Dogpatch Labs, creating Relay, a gantry based robotic chess portal",
-    href: "/now/"
+
   },
   availability: "feel free to contact",
   calendarLink: "basil-amin/30min",

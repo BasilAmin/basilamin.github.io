@@ -7,7 +7,7 @@ Every public entry is one Markdown file. The build reads frontmatter, renders th
 | `projects/` | `/projects/` | Case studies and ongoing work |
 | `posts/` | `/blog/` | Longer articles |
 | `logs/` | `/log/` | Short dated updates |
-| `pages/` | `/<slug>/` | Now and standalone pages |
+| `pages/` | `/<slug>/` | Optional standalone pages |
 
 Create a correctly formatted draft:
 
