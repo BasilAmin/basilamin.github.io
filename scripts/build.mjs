@@ -424,14 +424,14 @@ function renderHomeQuote() {
 }
 
 function renderPortalScene() {
-  const faces = ["front", "back", "right", "left", "top", "bottom"].map((face) => `<span class="cube-face face-${face}"></span>`).join("");
-  const connectors = Array.from({ length: 8 }, (_, index) => `<i style="--edge:${index}"></i>`).join("");
-  return `<div class="portal-scene" aria-hidden="true"><div class="portal portal-blue"><span></span></div><div class="portal portal-orange"><span></span></div><div class="tesseract"><div class="tesseract-cube cube-outer">${faces}</div><div class="tesseract-cube cube-inner">${faces}</div><div class="tesseract-links">${connectors}</div></div><div class="portal-floor"></div></div>`;
+  const energy = Array.from({ length: 10 }, (_, index) => `<i style="--spark:${index}"></i>`).join("");
+  const portal = (color) => `<div class="portal portal-${color}"><span class="portal-haze"></span><span class="portal-rim"></span><span class="portal-core"><i></i><i></i><i></i></span><span class="portal-energy">${energy}</span></div>`;
+  return `<div class="portal-scene" aria-hidden="true">${portal("blue")}${portal("orange")}<canvas class="robot-webgl"></canvas><div class="personality-core"><div class="core-rig"><span class="core-handle handle-top"></span><span class="core-handle handle-bottom"></span><div class="core-shell"><span class="shell-panel panel-left"></span><span class="shell-panel panel-right"></span><span class="shell-seam"></span><div class="core-face"><span class="core-eyelid lid-top"></span><span class="core-eyelid lid-bottom"></span><span class="core-eye"><i></i></span></div></div><span class="core-antenna"></span></div></div><div class="portal-floor"></div></div>`;
 }
 
 function renderHome() {
   const headline = site.headline.map((line, index) => `<span class="headline-line${index === site.headline.length - 1 ? " headline-line-accent" : ""}" style="--line-index:${index}" data-scramble data-scramble-start="${180 + index * 120}">${escapeHtml(line)}</span>`).join("");
-  return `<div class="site-shell home"><section class="home-masthead"><div class="home-copy"><h1 aria-label="${escapeHtml(site.headline.join(" "))}">${headline}</h1>${renderHomeQuote()}<p>${escapeHtml(site.introduction)}</p><div class="home-links"><a href="mailto:${escapeHtml(site.email)}">Email</a>${site.socialLinks.map((link) => `<a href="${escapeHtml(safeUrl(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</div></div>${renderPortalScene()}</section></div>`;
+  return `<div class="site-shell home"><section class="home-masthead"><div class="home-copy"><h1 aria-label="${escapeHtml(site.headline.join(" "))}">${headline}</h1>${renderHomeQuote()}<p>${escapeHtml(site.introduction)}</p><div class="home-links"><a href="mailto:${escapeHtml(site.email)}">Email</a>${site.socialLinks.map((link) => `<a href="${escapeHtml(safeUrl(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</div></div>${renderPortalScene()}</section><p class="home-copyright">© ${new Date().getUTCFullYear()} ${escapeHtml(site.name.trim())}</p></div>`;
 }
 
 function renderPageHeading(title, description, extra = "") {

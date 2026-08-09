@@ -35,7 +35,6 @@ export const site = {
     { label: "Projects", href: "/projects/" },
     { label: "Blog", href: "/blog/" },
     { label: "Logs", href: "/log/" },
-    { label: "Now", href: "/now/" },
     { label: "Contact", href: "/contact/" }
   ]
 };
