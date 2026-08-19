@@ -20,7 +20,7 @@ export const site = {
     text: "Building Relay at Dogpatch Labs, creating Relay, a gantry based robotic chess portal",
 
   },
-  availability: "feel free to contact",
+  availability: "feel free to contact, [dot] is there to avoid spam from bots, replace with an actual dot.",
   calendarLink: "basil-amin/30min",
   quotes: {
     sagan: "My favourite quote: 'Skeptical scrutiny is the means, in both science and religion, by which deep thoughts can be winnowed from deep nonsense.'",
