@@ -1,7 +1,7 @@
 export const site = {
   name: " I'm Basil Amin",
   domain: "https://basilamin.com",
-  email: "basilaminxyz@gmail.com",
+  email: "basilaminxyz@gmail[dot]com",
   location: "Dublin, Ireland",
   palette: "foundry",
   birthDate: "2009-02-20",
