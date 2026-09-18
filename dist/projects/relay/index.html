@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-palette="foundry">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relay —  I&#039;m Basil Amin</title>
+  <meta name="description" content="A gantry-based robotic chess system that keeps a physical board and a Lichess game in sync.">
+  <meta name="theme-color" content="#0b0b0a" data-theme-color>
+  
+  <link rel="canonical" href="https://basilamin.com/projects/relay/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" href="/feed.xml" type="application/rss+xml" title=" I&#039;m Basil Amin feed">
+  <script>try{const stored=localStorage.getItem("basil-theme");const system=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=stored||system}catch{document.documentElement.dataset.theme="dark"}document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content=" I&#039;m Basil Amin">
+  <meta property="og:title" content="Relay —  I&#039;m Basil Amin">
+  <meta property="og:description" content="A gantry-based robotic chess system that keeps a physical board and a Lichess game in sync.">
+  <meta property="og:url" content="https://basilamin.com/projects/relay/">
+  <meta property="og:image" content="https://basilamin.com/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Basil Amin — projects, field notes, and technical writing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Relay —  I&#039;m Basil Amin">
+  <meta name="twitter:description" content="A gantry-based robotic chess system that keeps a physical board and a Lichess game in sync.">
+  <meta name="twitter:image" content="https://basilamin.com/og-card.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Relay —  I'm Basil Amin","headline":"Relay —  I'm Basil Amin","description":"A gantry-based robotic chess system that keeps a physical board and a Lichess game in sync.","url":"https://basilamin.com/projects/relay/","author":{"@type":"Person","name":" I'm Basil Amin","url":"https://basilamin.com"},"datePublished":"2026-07-20"}</script>
+</head>
+<body class="project-detail-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" data-site-header><div class="site-shell header-inner"><a class="site-name" href="/" aria-label=" I&#039;m Basil Amin — Home"><span data-scramble data-scramble-start="70">I&#039;m Basil</span><span class="site-surname" data-scramble data-scramble-start="135">Amin</span></a><div class="header-navigation"><nav class="site-nav" aria-label="Primary navigation"><a href="/projects/" data-scramble data-scramble-start="620" aria-current="page">Projects</a><a href="/blog/" data-scramble data-scramble-start="678">Blog</a><a href="/log/" data-scramble data-scramble-start="736">Logs</a><a href="/contact/" data-scramble data-scramble-start="794">Contact</a></nav><div class="header-actions"><button class="location-clock" type="button" data-location-clock data-default-location="Dublin" data-default-time-zone="Europe/Dublin" data-birth-date="2009-02-20" aria-label="Change displayed location and time zone"><span class="clock-place" data-clock-location>Dublin</span><time class="clock-time" data-clock-time>--:--:--</time><span class="clock-age"><span data-live-age>--.------</span> years</span></button><button class="command-trigger" type="button" data-command-open aria-label="Open site search"><span data-scramble data-scramble-start="852">Search</span><kbd>⌘K</kbd></button><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme"><span data-theme-label>Light</span></button></div></div></div></header>
+  <main id="main-content"><div class="site-shell entry-page"><a class="back-link" href="/projects/">← Projects</a><header class="entry-heading"><h1 data-scramble data-scramble-start="140">Relay</h1><p>A gantry-based robotic chess system that keeps a physical board and a Lichess game in sync.</p><dl><div><dt>Status</dt><dd>In progress</dd></div><div><dt>Year</dt><dd>2026</dd></div><div><dt>Role</dt><dd>Firmware and software</dd></div><div><dt>Fields</dt><dd>Robotics · Embedded Systems · Computer Vision · Collaboration</dd></div></dl></header><div class="entry-layout"><article class="prose"><h2 id="the-project">The project</h2>
+<p>Relay is our team project for the Patch summer accelerator at Dogpatch Labs. We are turning a repurposed 3D-printer gantry into a robotic chess system: the machine observes a physical board, reconciles it with an online game, and moves pieces through an electromagnet mounted on the gantry.</p>
+<p>The difficult part is not making one piece move once. It is keeping several imperfect systems in agreement: board state, move detection, motion control, network state, and recovery when reality does not match the software’s assumptions.</p>
+<h2 id="my-work">My work</h2>
+<p>I am working mainly on firmware and software. That includes defining the interfaces between subsystems, making state changes explicit, and building tests that expose failures before a full demonstration does.</p>
+<p>A useful design question has been: what must each part know, and what should it never be allowed to assume?</p>
+<h2 id="current-focus">Current focus</h2>
+<ul><li>write the architecture and interface map;</li><li>keep a real build log instead of relying on memory;</li><li>define repeatable integration tests with the team;</li><li>record failure modes and recovery behaviour;</li><li>make the public explanation match the system we actually built.</li></ul>
+<h2 id="what-i-am-learning">What I am learning</h2>
+<p>Team engineering is less about having the cleverest isolated solution and more about making boundaries legible. A component is not finished when it works alone; it is finished when the rest of the system can depend on it without guesswork.</p></article><aside class="entry-toc"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#the-project">The project</a></li><li class="toc-level-2"><a href="#my-work">My work</a></li><li class="toc-level-2"><a href="#current-focus">Current focus</a></li><li class="toc-level-2"><a href="#what-i-am-learning">What I am learning</a></li></ol></aside></div></div></main>
+  <footer class="site-footer"><div class="site-shell footer-inner"><p>© 2026  I&#039;m Basil Amin</p><nav aria-label="Footer navigation"><a href="mailto:basilaminxyz@gmail[dot]com">Email</a><a href="https://github.com/BasilAmin">GitHub</a><a href="https://www.linkedin.com/in/basil-amin-653231354/">LinkedIn</a><a href="/feed.xml">RSS</a></nav></div></footer>
+  <dialog class="command-palette" data-command-dialog aria-labelledby="command-title"><div class="command-frame"><div class="command-input-row"><label id="command-title" for="command-search">Search this site</label><button type="button" data-command-close aria-label="Close search">Esc</button></div><input id="command-search" type="search" autocomplete="off" spellcheck="false" placeholder="Projects, notes, logs…" data-command-input><div class="command-results" data-command-results><p>Start typing to search every published page.</p></div><div class="command-footer"><span>↑↓ move</span><span>↵ open</span></div></div></dialog><dialog class="location-dialog" data-location-dialog aria-labelledby="location-title"><form method="dialog" class="location-frame" data-location-form><div class="location-heading"><div><h2 id="location-title">Displayed place</h2><p>This changes the clock in this browser. The site default remains Dublin.</p></div><button type="button" data-location-close aria-label="Close location settings">Esc</button></div><div class="location-presets" aria-label="Common locations"><button type="button" data-location-preset data-location-label="Dublin" data-location-zone="Europe/Dublin">Dublin</button><button type="button" data-location-preset data-location-label="London" data-location-zone="Europe/London">London</button><button type="button" data-location-preset data-location-label="New York" data-location-zone="America/New_York">New York</button><button type="button" data-location-preset data-location-label="San Francisco" data-location-zone="America/Los_Angeles">San Francisco</button><button type="button" data-location-preset data-location-label="Dubai" data-location-zone="Asia/Dubai">Dubai</button><button type="button" data-location-preset data-location-label="Tokyo" data-location-zone="Asia/Tokyo">Tokyo</button></div><label for="location-label">Place name</label><input id="location-label" name="label" autocomplete="off" data-location-label-input><label for="location-zone">IANA time zone</label><input id="location-zone" name="zone" autocomplete="off" spellcheck="false" placeholder="Europe/Dublin" data-location-zone-input><p class="location-error" data-location-error aria-live="polite"></p><div class="location-actions"><button type="button" data-location-reset>Reset to Dublin</button><button type="submit">Save</button></div></form></dialog>
+  <script src="/assets/site.js" defer></script>
+  
+</body>
+</html>
