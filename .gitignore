@@ -1,3 +1,7 @@
-./template.txt
-./asciiart.txt
-./writing/ideas.txt
+# Local drafts and page template
+/template.txt
+/asciiart.txt
+/writing/ideas.txt
+
+# VS Code settings
+/.vscode/
